@@ -1,11 +1,11 @@
 <meta charset="utf-8">
-<title><?= $titulo ?></title>
+<title><?php // $titulo ?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
 <meta name="author" content="Muhammad Usman">
 
 <!-- The styles -->
-<link id="bs-css" href="css/bootstrap-cerulean.min.css" rel="stylesheet">
+<link id="bs-css" href="<?= base_url() . RECURSOS ?>css/bootstrap-cerulean.min.css" rel="stylesheet">
 
 <link href="<?= base_url() . RECURSOS ?>css/charisma-app.css" rel="stylesheet">
 <link href='<?= base_url() . RECURSOS ?>bower_components/fullcalendar/dist/fullcalendar.css' rel='stylesheet'>
