@@ -7,7 +7,11 @@ class Admin extends CI_Controller{
     }
     
     public function index(){
-        
+        $data = array(
+            'titulo' => 'Administrador Biblioteca',
+            'contenido' => 'admin'
+        );
+        $this->load->view(THEME . TEMPLATE, $data);
     }
 }
 

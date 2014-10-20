@@ -16,6 +16,10 @@ CSS FORM VALIDATION
     color:#b94a48
 }
 
-.form-group input.error{
+.form-group input.error, .login-box .input-group input.error{
     border-color:#b94a48
+}
+
+.login-box .input-group label.error{
+    display: none !important;
 }
