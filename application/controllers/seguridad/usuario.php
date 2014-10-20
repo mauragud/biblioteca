@@ -17,15 +17,24 @@ class Usuario extends CI_Controller {
     }
 
     public function index() {
-        
+        $data = array(
+                'titulo' => $this->titulo_controlador,
+                'contenido' => $this->vista . 'index'
+            );
+            $this->load->view(THEME . TEMPLATE, $data);
     }
 
     public function crear() {
-        if ($this->form_validation->run()) {
-            
+        if ($this->form_validation->run($this->controlador)) {
+            if ($this->Controlador_model->crear($this->controlador)){
+                mensaje_alerta('hecho', 'crear');
+            }else{
+                mensaje_alerta('error', 'crear');
+            }
+            redirect($this->url);
         } else {
             $data = array(
-                'titulo' => 'Crar ' . $this->titulo_controlador,
+                'titulo' => 'Crear ' . $this->titulo_controlador,
                 'contenido' => $this->vista . 'crear'
             );
             $this->load->view(THEME . TEMPLATE, $data);
@@ -34,7 +43,7 @@ class Usuario extends CI_Controller {
 
     public function check_usuario() {
         if ($this->input->is_ajax_request()) {
-            if ($this->Controlador_model->checkUsuario()) {
+            if ($this->Controlador_model->checkUsuario($this->controlador)) {
                 $this->output->set_output('false');
             } else {
                 $this->output->set_output('true');

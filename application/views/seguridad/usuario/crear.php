@@ -1,3 +1,4 @@
+<?php echo validation_errors(); ?>
 <div class="row">
     <div class="box col-md-12">
         <div class="box-inner">
@@ -10,19 +11,19 @@
                 <form action="" method="POST" id="form_principal" role="form">
                     <div class="form-group">
                         <label class="control-label">Usuario:</label>
-                        <input type="text" name="usuario" class="form-control" id="usuario" value="<?php echo set_value('usuario', isset($data->usuario) ? $data->usuario : '') ?>" placeholder="Escriba su usuario" required />
+                        <input type="text" name="usuario" class="form-control" id="usuario" value="<?php echo set_value('usuario', isset($data->usuario) ? $data->usuario : '') ?>" placeholder="Escriba su usuario" required/>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Email:</label>
-                        <input type="email" name="email" class="form-control" id="email" value="<?php echo set_value('email', isset($data->email) ? $data->email : '') ?>" placeholder="Escirba su email" required />
+                        <input type="email" name="email" class="form-control" id="email" value="<?php echo set_value('email', isset($data->email) ? $data->email : '') ?>" placeholder="Escirba su email"  required/>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Contraseña:</label>
-                        <input type="password" name="password" class="form-control" id="password" placeholder="Contraseña" required minlength="4" />
+                        <input type="password" name="password" class="form-control" id="password" placeholder="Contraseña"  minlength="4" required/>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Repita Contraseña:</label>
-                        <input type="password" name="re_password" class="form-control" id="re_password" placeholder="Repita Contraseña" required minlength="4" />
+                        <input type="password" name="re_password" class="form-control" id="re_password" placeholder="Repita Contraseña" minlength="4" required/>
                     </div>
 
                     <input type="hidden" name="id" value="<?php echo isset($data->id) ? $data->id : '' ?>" />

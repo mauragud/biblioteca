@@ -23,13 +23,13 @@ function mensaje_alerta($tipo, $accion) {
     switch ($tipo) {
         case 'hecho' :
             return $CI->session->set_flashdata('mensaje', '<div class="alert alert-success alert-dismissable">'
-                            . '<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>'
+                            . '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'
                             . $CI->lang->line('mensaje_'.$tipo.'_'.$accion)
                             . '</div>'
             );
         case 'error' :
             return $CI->session->set_flashdata('mensaje', '<div class="alert alert-danger alert-dismissable">'
-                            . '<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>'
+                            . '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'
                             . $CI->lang->line('mensaje_'.$tipo.'_'.$accion)
                             . '</div>'
             );
