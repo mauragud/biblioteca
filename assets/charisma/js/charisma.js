@@ -7,7 +7,7 @@ $(document).ready(function () {
     var msie = navigator.userAgent.match(/msie/i);
     $.browser = {};
     $.browser.msie = {};
-    switchTheme(currentTheme);
+    //switchTheme(currentTheme);
 
     $('.navbar-toggle').click(function (e) {
         e.preventDefault();
@@ -41,7 +41,7 @@ $(document).ready(function () {
     });
 
 
-    function switchTheme(themeName) {
+    /*function switchTheme(themeName) {
         if (themeName == 'classic') {
             $('#bs-css').attr('href', 'bower_components/bootstrap/dist/css/bootstrap.min.css');
         } else {
@@ -50,7 +50,7 @@ $(document).ready(function () {
 
         $('#themes i').removeClass('glyphicon glyphicon-ok whitespace').addClass('whitespace');
         $('#themes a[data-value=' + themeName + ']').find('i').removeClass('whitespace').addClass('glyphicon glyphicon-ok');
-    }
+    }*/
 
     //ajax menu checkbox
     $('#is-ajax').click(function (e) {
