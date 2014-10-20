@@ -18,24 +18,28 @@ class Usuario extends CI_Controller {
 
     public function index() {
         $data = array(
-                'titulo' => $this->titulo_controlador,
-                'contenido' => $this->vista . 'index'
-            );
-            $this->load->view(THEME . TEMPLATE, $data);
+            'titulo' => $this->titulo_controlador,
+            'contenido' => $this->vista . 'index',
+            'datas' => $this->Controlador_model->getAll(),
+            'breads' => array(array('ruta' => 'javascript:;', 'titulo' => $this->titulo_controlador))
+        );
+        $this->load->view(THEME . TEMPLATE, $data);
     }
 
     public function crear() {
         if ($this->form_validation->run($this->controlador)) {
-            if ($this->Controlador_model->crear($this->controlador)){
+            if ($this->Controlador_model->crear($this->controlador)) {
                 mensaje_alerta('hecho', 'crear');
-            }else{
+            } else {
                 mensaje_alerta('error', 'crear');
             }
             redirect($this->url);
         } else {
             $data = array(
                 'titulo' => 'Crear ' . $this->titulo_controlador,
-                'contenido' => $this->vista . 'crear'
+                'contenido' => $this->vista . 'crear',
+                'breads' => array(array('ruta' => $this->url, 'titulo' => $this->titulo_controlador),
+                    array('ruta' => 'javascript:;', 'titulo' => 'Crear'))
             );
             $this->load->view(THEME . TEMPLATE, $data);
         }

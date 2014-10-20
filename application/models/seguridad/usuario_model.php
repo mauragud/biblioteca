@@ -2,13 +2,9 @@
 
 class Usuario_model extends CI_Model{
     
-    public function checkUsuario($tabla){
-        return $this->db
-                ->where('usuario',$this->input->post('usuario'))
-                ->get($tabla)
-                ->result();
+    public function getAll(){
+        return $this->db->get('usuario')->result();
     }
-    
     
     public function crear($tabla){
         $password = sha1($this->input->post('password'));
@@ -18,6 +14,13 @@ class Usuario_model extends CI_Model{
             'email' => $this->input->post('email')
         );
         return $this->db->insert($tabla, $data);
+    }
+    
+    public function checkUsuario($tabla){
+        return $this->db
+                ->where('usuario',$this->input->post('usuario'))
+                ->get($tabla)
+                ->result();
     }
 }
 
