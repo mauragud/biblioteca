@@ -62,6 +62,8 @@
         <!-- JQUERY VALIDATE -->
         <script src="<?= base_url() . RECURSOS ?>js/jquery.validate.min.js"></script>
         <script src="<?= base_url() . RECURSOS ?>js/localization/messages_es.min.js"></script>
+        <!--BOOTBOX VENTANA DE ALERTAS -->
+        <script src="<?= base_url() . RECURSOS ?>js/bootbox.min.js"></script>
         <!-- application script for Charisma demo -->
         <script src="<?= base_url() . RECURSOS ?>js/charisma.js"></script>
 

@@ -45,6 +45,43 @@ class Usuario extends CI_Controller {
         }
     }
 
+    public function actualizar($id = FALSE) {
+        if ($id) {
+            if ($this->form_validation->run('actualizar_usuario')) {
+                if ($this->Controlador_model->actualizar($this->controlador)) {
+                    mensaje_alerta('hecho', 'actualizar');
+                } else {
+                    mensaje_alerta('error', 'actualizar');
+                }
+                redirect($this->url);
+            } else {
+                $data = array(
+                    'titulo' => 'Crear ' . $this->titulo_controlador,
+                    'contenido' => $this->vista . 'crear',
+                    'data' => $this->Controlador_model->get($id),
+                    'breads' => array(array('ruta' => $this->url, 'titulo' => $this->titulo_controlador),
+                        array('ruta' => 'javascript:;', 'titulo' => 'Crear'))
+                );
+                $this->load->view(THEME . TEMPLATE, $data);
+            }
+        } else {
+            show_404();
+        }
+    }
+    
+    public function eliminar($id = FALSE){
+        if($id){
+            if($this->Controlador_model->eliminar($id)){
+                mensaje_alerta('hecho', 'eliminar');
+            }else{
+                mensaje_alerta('error', 'eliminar');
+            }
+            redirect($this->url);
+        }else{
+            show_404();
+        }
+    }
+
     public function check_usuario() {
         if ($this->input->is_ajax_request()) {
             if ($this->Controlador_model->checkUsuario($this->controlador)) {

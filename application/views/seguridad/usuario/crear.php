@@ -19,14 +19,14 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label">Contraseña:</label>
-                        <input type="password" name="password" class="form-control" id="password" placeholder="Contraseña"  minlength="4" required/>
+                        <input type="password" name="password" class="form-control password" id="password" placeholder="Contraseña"  minlength="4" required/>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Repita Contraseña:</label>
-                        <input type="password" name="re_password" class="form-control" id="re_password" placeholder="Repita Contraseña" minlength="4" required/>
+                        <input type="password" name="re_password" class="form-control password" id="re_password" placeholder="Repita Contraseña" minlength="4" required/>
                     </div>
 
-                    <input type="hidden" name="id" value="<?php echo isset($data->id) ? $data->id : '' ?>" />
+                    <input type="hidden" name="id" id="id" value="<?php echo isset($data->id) ? $data->id : '' ?>" />
                     <button type="submit" class="btn btn-default"><?php echo isset($data->id) ? 'Actualizar' : 'Crear' ?></button>
                 </form>
 
@@ -43,7 +43,7 @@
             rules: {
                 usuario: {
                     remote: {
-                        type:'post',
+                        type: 'post',
                         url: "<?php echo $this->url ?>/check_usuario",
                         data: {
                             id: function () {
@@ -70,5 +70,18 @@
                         }
             }
         });
+
+        $('#password').bind('blur', function () {
+            if ($(this).val() !== '') {
+                $('#re_password').attr('required', 'required');
+            } else {
+                $('#re_password').removeAttr('required').valid();
+            }
+        });
+
+<?php if (isset($data->id)): ?>
+            $('.password').removeAttr('required');
+<?php endif; ?>
+
     });
 </script>
