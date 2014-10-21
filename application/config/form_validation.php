@@ -57,6 +57,11 @@ $config = array(
             'field' => 'descripcion',
             'label' => 'Descripción',
             'rules' => 'trim|required|unique[tipo_libro.descripcion]'
+        ),
+        array(
+            'field' => 'foto',
+            'label' => 'Foto',
+            'rules' => 'trim'
         )
     ),
 );

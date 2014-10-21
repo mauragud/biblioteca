@@ -15,6 +15,7 @@
                         <thead>
                             <tr>
                                 <th>Descripción</th>
+                                <th>Foto</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -22,6 +23,7 @@
                             <?php foreach ($datas as $data): ?>
                                 <tr>
                                     <td><?= $data->descripcion ?></td>
+                                    <td><?php echo $data->foto ? '<img class="foto" src="'.base_url().$data->foto.'" alt="foto_ubicacion" width="30px" />' : '' ?></td>
                                     <td class="center">
                                         <a class="btn btn-info" href="<?= $this->url ?>/actualizar/<?= $data->id ?>">
                                             <i class="glyphicon glyphicon-edit icon-white"></i>
@@ -45,6 +47,24 @@
     <!--/span-->
 
 </div><!--/row-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h3>Foto Ubicación</h3>
+                </div>
+                <div class="modal-body">
+                    
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-default" data-dismiss="modal">Cerrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
 <script>
     $(document).ready(function () {
         $('.eliminar').bind('click', function (e) {
@@ -54,6 +74,12 @@
                     window.location = e.currentTarget;
                 }
             });
+        });
+        
+        $('.foto').bind('click',function(){
+            var ruta = $(this).attr('src');
+            $('.modal-body').html('<img class="foto" src="'+ruta+'" alt="foto_ubicacion" width="400px" />')
+            $('#myModal').modal('show');
         });
     });
 </script>
