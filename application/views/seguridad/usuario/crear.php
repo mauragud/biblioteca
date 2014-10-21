@@ -44,7 +44,7 @@
                 usuario: {
                     remote: {
                         type: 'post',
-                        url: "<?php echo $this->url ?>/check_usuario",
+                        url: "<?php echo $this->url ?>/check",
                         data: {
                             id: function () {
                                 return $("#id").val();

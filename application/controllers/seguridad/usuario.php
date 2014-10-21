@@ -20,7 +20,7 @@ class Usuario extends CI_Controller {
         $data = array(
             'titulo' => $this->titulo_controlador,
             'contenido' => $this->vista . 'index',
-            'datas' => $this->Controlador_model->getAll(),
+            'datas' => $this->Controlador_model->getAll($this->controlador),
             'breads' => array(array('ruta' => 'javascript:;', 'titulo' => $this->titulo_controlador))
         );
         $this->load->view(THEME . TEMPLATE, $data);
@@ -58,7 +58,7 @@ class Usuario extends CI_Controller {
                 $data = array(
                     'titulo' => 'Crear ' . $this->titulo_controlador,
                     'contenido' => $this->vista . 'crear',
-                    'data' => $this->Controlador_model->get($id),
+                    'data' => $this->Controlador_model->get($id, $this->controlador),
                     'breads' => array(array('ruta' => $this->url, 'titulo' => $this->titulo_controlador),
                         array('ruta' => 'javascript:;', 'titulo' => 'Crear'))
                 );
@@ -71,7 +71,7 @@ class Usuario extends CI_Controller {
     
     public function eliminar($id = FALSE){
         if($id){
-            if($this->Controlador_model->eliminar($id)){
+            if($this->Controlador_model->eliminar($id,$this->controlador)){
                 mensaje_alerta('hecho', 'eliminar');
             }else{
                 mensaje_alerta('error', 'eliminar');
@@ -82,7 +82,7 @@ class Usuario extends CI_Controller {
         }
     }
 
-    public function check_usuario() {
+    public function check() {
         if ($this->input->is_ajax_request()) {
             if ($this->Controlador_model->checkUsuario($this->controlador)) {
                 $this->output->set_output('false');

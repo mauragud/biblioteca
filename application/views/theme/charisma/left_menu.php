@@ -17,6 +17,17 @@
                         <li><a href="<?= base_url() ?>seguridad/usuario/crear">Crear</a></li>
                     </ul>
                 </li>
+                <li class="accordion">
+                    <a href="#"><i class="glyphicon glyphicon-plus"></i><span> Parametrizacion</span></a>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li>
+                            <a href="<?= base_url() ?>parametrizacion/tipo_libro">Tipo libro</a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url() ?>parametrizacion/ubicacion">Ubicación</a>
+                        </li>
+                    </ul>
+                </li>
                 <li>
                     <a class="ajax-link" href="form.html"><i class="glyphicon glyphicon-edit"></i><span> Forms</span></a></li>
                 <li>

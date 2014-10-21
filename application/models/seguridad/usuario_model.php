@@ -2,16 +2,16 @@
 
 class Usuario_model extends CI_Model {
 
-    public function getAll() {
+    public function getAll($tabla) {
         return $this->db
-                        ->get('usuario')
+                        ->get($tabla)
                         ->result();
     }
 
-    public function get($id) {
+    public function get($id, $tabla) {
         return $this->db
                         ->where('id', $id)
-                        ->get('usuario')
+                        ->get($tabla)
                         ->row();
     }
 
@@ -37,13 +37,13 @@ class Usuario_model extends CI_Model {
                         ->update($tabla, $data);
     }
 
-    public function eliminar($id) {
+    public function eliminar($id,$tabla) {
         return $this->db
                         ->where('id', $id)
-                        ->delete('usuario');
+                        ->delete($tabla);
     }
 
-    public function checkUsuario($tabla) {
+    public function check($tabla) {
         $id = $this->input->post('id');
         if ($id)
             $this->db->where('id !=', $id);

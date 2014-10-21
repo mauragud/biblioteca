@@ -45,5 +45,19 @@ $config = array(
             'rules' => 'trim|min_length[4]|matches[password]'
         ),
     ),
+    'tipo_libro' => array(
+        array(
+            'field' => 'descripcion',
+            'label' => 'Descripción',
+            'rules' => 'trim|required|unique[tipo_libro.descripcion]'
+        )
+    ),
+    'ubicacion' => array(
+        array(
+            'field' => 'descripcion',
+            'label' => 'Descripción',
+            'rules' => 'trim|required|unique[tipo_libro.descripcion]'
+        )
+    ),
 );
 
