@@ -21,6 +21,7 @@
 <link href='<?= base_url() . RECURSOS ?>css/jquery.iphone.toggle.css' rel='stylesheet'>
 <link href='<?= base_url() . RECURSOS ?>css/uploadify.css' rel='stylesheet'>
 <link href='<?= base_url() . RECURSOS ?>css/animate.min.css' rel='stylesheet'>
+<link href='<?= base_url() . RECURSOS ?>css/jquery.fileupload.css' rel='stylesheet'>
 <link href='<?= base_url() . RECURSOS ?>css/biblioteca.css' rel='stylesheet'>
 
 <!-- jQuery -->

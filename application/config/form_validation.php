@@ -64,5 +64,43 @@ $config = array(
             'rules' => 'trim'
         )
     ),
+    'libro' => array(
+        array(
+            'field' => 'titulo',
+            'label' => 'Titulo del libro',
+            'rules' => 'trim|required'
+        ),
+        array(
+            'field' => 'isbn',
+            'label' => 'Isbn del libro',
+            'rules' => 'trim|required',
+        ),
+        array(
+            'field' => 'autor',
+            'label' => 'Autor del libro',
+            'rules' => 'trim|required',
+        ),
+        array(
+            'field' => 'editorial',
+            'label' => 'Editorial del libro',
+            'rules' => 'trim|required',
+        ),
+        array(
+            'field' => 'foto',
+            'label' => 'Foto',
+            'rules' => 'trim'
+        ),
+        array(
+            'field' => 'ubicacion_id',
+            'label' => 'Ubicacion del libro',
+            'rules' => 'trim|required'
+        ),
+        array(
+            'field' => 'tipo_libro_id',
+            'label' => 'Tipo de libro',
+            'rules' => 'trim|required'
+        )
+        
+    ),
 );
 

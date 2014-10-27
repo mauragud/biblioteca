@@ -14,6 +14,15 @@ class Ubicacion_model extends CI_Model {
                         ->get($tabla)
                         ->row();
     }
+    
+     public function getArray($tabla) {
+        $query = $this->db->get($tabla)->result();
+        $data[''] = 'Seleccione';
+        foreach ($query as $row) {
+            $data[$row->id] = $row->descripcion;
+        }
+        return $data;
+    }
 
     public function crear($tabla) {
         foreach ($this->input->post() as $key => $value) {

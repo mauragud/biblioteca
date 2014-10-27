@@ -23,13 +23,13 @@
                             <?php foreach ($datas as $data): ?>
                                 <tr>
                                     <td><?= $data->descripcion ?></td>
-                                    <td><?php echo $data->foto ? '<img class="foto" src="'.base_url().$data->foto.'" alt="foto_ubicacion" width="30px" />' : '' ?></td>
+                                    <td><?php echo $data->foto ? '<img class="foto" src="' . base_url() . $data->foto . '" alt="foto_ubicacion" width="30px" />' : '' ?></td>
                                     <td class="center">
-                                        <a class="btn btn-info" href="<?= $this->url ?>/actualizar/<?= $data->id ?>">
+                                        <a class="btn btn-info btn-xs" href="<?= $this->url ?>/actualizar/<?= $data->id ?>">
                                             <i class="glyphicon glyphicon-edit icon-white"></i>
                                             Editar
                                         </a>
-                                        <a class="btn btn-danger eliminar" href="<?= $this->url ?>/eliminar/<?= $data->id ?>">
+                                        <a class="btn btn-danger btn-xs eliminar" href="<?= $this->url ?>/eliminar/<?= $data->id ?>">
                                             <i class="glyphicon glyphicon-trash icon-white"></i>
                                             Eliminar
                                         </a>
@@ -48,23 +48,23 @@
 
 </div><!--/row-->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-         aria-hidden="true">
+     aria-hidden="true">
 
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h3>Foto Ubicación</h3>
-                </div>
-                <div class="modal-body">
-                    
-                </div>
-                <div class="modal-footer">
-                    <a href="#" class="btn btn-default" data-dismiss="modal">Cerrar</a>
-                </div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h3>Foto Ubicación</h3>
+            </div>
+            <div class="modal-body" style="text-align: center">
+
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default" data-dismiss="modal">Cerrar</a>
             </div>
         </div>
     </div>
+</div>
 <script>
     $(document).ready(function () {
         $('.eliminar').bind('click', function (e) {
@@ -75,10 +75,10 @@
                 }
             });
         });
-        
-        $('.foto').bind('click',function(){
+
+        $('.foto').bind('click', function () {
             var ruta = $(this).attr('src');
-            $('.modal-body').html('<img class="foto" src="'+ruta+'" alt="foto_ubicacion" width="400px" />')
+            $('.modal-body').html('<img class="foto" src="' + ruta + '" alt="foto_ubicacion" width="400px" />')
             $('#myModal').modal('show');
         });
     });

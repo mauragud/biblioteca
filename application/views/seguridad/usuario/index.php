@@ -27,11 +27,11 @@
                                     <td class="center"><?= $data->email ?></td>
                                     <td class="center"><?= $data->created ?></td>
                                     <td class="center">
-                                        <a class="btn btn-info" href="<?= $this->url ?>/actualizar/<?= $data->id ?>">
+                                        <a class="btn btn-info btn-xs" href="<?= $this->url ?>/actualizar/<?= $data->id ?>">
                                             <i class="glyphicon glyphicon-edit icon-white"></i>
                                             Editar
                                         </a>
-                                        <a class="btn btn-danger eliminar" href="<?= $this->url ?>/eliminar/<?= $data->id ?>">
+                                        <a class="btn btn-danger btn-xs eliminar" href="<?= $this->url ?>/eliminar/<?= $data->id ?>">
                                             <i class="glyphicon glyphicon-trash icon-white"></i>
                                             Eliminar
                                         </a>

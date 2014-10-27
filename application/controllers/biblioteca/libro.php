@@ -1,6 +1,6 @@
 <?php
 
-class Usuario extends CI_Controller {
+class Libro extends CI_Controller {
 
     var $controlador;
     var $titulo_controlador;
@@ -9,11 +9,12 @@ class Usuario extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('seguridad/' . modelo(), 'Controlador_model');
+        $this->load->model('biblioteca/' . modelo(), 'Controlador_model');
+        $this->load->model(array('parametrizacion/Tipo_libro_model', 'parametrizacion/Ubicacion_model'));
         $this->controlador = controlador();
         $this->titulo_controlador = humanize($this->controlador);
-        $this->url = base_url() . 'seguridad/' . $this->controlador;
-        $this->vista = 'seguridad/' . $this->controlador . '/';
+        $this->url = base_url() . 'biblioteca/' . $this->controlador;
+        $this->vista = 'biblioteca/' . $this->controlador . '/';
     }
 
     public function index() {
@@ -38,6 +39,8 @@ class Usuario extends CI_Controller {
             $data = array(
                 'titulo' => 'Crear ' . $this->titulo_controlador,
                 'contenido' => $this->vista . 'crear',
+                'array' => $this->Tipo_libro_model->getArray('tipo_libro'),
+                'array1' => $this->Ubicacion_model->getArray('ubicacion'),
                 'breads' => array(array('ruta' => $this->url, 'titulo' => $this->titulo_controlador),
                     array('ruta' => 'javascript:;', 'titulo' => 'Crear'))
             );
@@ -47,7 +50,7 @@ class Usuario extends CI_Controller {
 
     public function actualizar($id = FALSE) {
         if ($id) {
-            if ($this->form_validation->run('actualizar_usuario')) {
+            if ($this->form_validation->run($this->controlador)) {
                 if ($this->Controlador_model->actualizar($this->controlador)) {
                     mensaje_alerta('hecho', 'actualizar');
                 } else {
@@ -58,6 +61,8 @@ class Usuario extends CI_Controller {
                 $data = array(
                     'titulo' => 'Crear ' . $this->titulo_controlador,
                     'contenido' => $this->vista . 'crear',
+                    'array' => $this->Tipo_libro_model->getArray('tipo_libro'),
+                    'array1' => $this->Ubicacion_model->getArray('ubicacion'),
                     'data' => $this->Controlador_model->get($id, $this->controlador),
                     'breads' => array(array('ruta' => $this->url, 'titulo' => $this->titulo_controlador),
                         array('ruta' => 'javascript:;', 'titulo' => 'Crear'))
@@ -68,16 +73,16 @@ class Usuario extends CI_Controller {
             show_404();
         }
     }
-    
-    public function eliminar($id = FALSE){
-        if($id){
-            if($this->Controlador_model->eliminar($id,$this->controlador)){
+
+    public function eliminar($id = FALSE) {
+        if ($id) {
+            if ($this->Controlador_model->eliminar($id, $this->controlador)) {
                 mensaje_alerta('hecho', 'eliminar');
-            }else{
+            } else {
                 mensaje_alerta('error', 'eliminar');
             }
             redirect($this->url);
-        }else{
+        } else {
             show_404();
         }
     }

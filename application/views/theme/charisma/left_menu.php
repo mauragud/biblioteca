@@ -28,6 +28,13 @@
                         </li>
                     </ul>
                 </li>
+                <li class="accordion">
+                    <a href="#"><i class="glyphicon glyphicon-plus"></i><span> Libros</span></a>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="<?= base_url() ?>biblioteca/libro">Listado</a></li>
+                        <li><a href="<?= base_url() ?>biblioteca/libro/crear">Crear</a></li>
+                    </ul>
+                </li>
                 <li>
                     <a class="ajax-link" href="form.html"><i class="glyphicon glyphicon-edit"></i><span> Forms</span></a></li>
                 <li>

@@ -23,3 +23,11 @@ CSS FORM VALIDATION
 .login-box .input-group label.error{
     display: none !important;
 }
+
+.chosen-container{
+    display:block;
+}
+
+.fotografia, .foto{
+    cursor: pointer;
+}

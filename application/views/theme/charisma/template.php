@@ -56,7 +56,9 @@
         <!-- autogrowing textarea plugin -->
         <script src="<?= base_url() . RECURSOS ?>js/jquery.autogrow-textarea.js"></script>
         <!-- multiple file upload plugin -->
-        <script src="<?= base_url() . RECURSOS ?>js/jquery.uploadify-3.1.min.js"></script>
+        <script src="<?= base_url() . RECURSOS ?>js/jquery.ui.widget.js"></script>
+        <script src="<?= base_url() . RECURSOS ?>js/jquery.iframe-transport.js"></script>
+        <script src="<?= base_url() . RECURSOS ?>js/jquery.fileupload.js"></script>
         <!-- history.js for cross-browser state change on ajax -->
         <script src="<?= base_url() . RECURSOS ?>js/jquery.history.js"></script>
         <!-- JQUERY VALIDATE -->

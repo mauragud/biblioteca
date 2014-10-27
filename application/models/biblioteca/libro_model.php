@@ -1,27 +1,22 @@
 <?php
 
-class Tipo_libro_model extends CI_Model {
+class Libro_model extends CI_Model {
 
     public function getAll($tabla) {
         return $this->db
-                        ->get($tabla)
+                        ->select('L.*,TL.descripcion tipo_libro, U.descripcion ubicacion, U.foto foto_ubicacion')
+                        ->from($tabla . ' L')
+                        ->join('tipo_libro TL', 'TL.id = L.tipo_libro_id')
+                        ->join('ubicacion U', 'U.id = L.ubicacion_id')
+                        ->get()
                         ->result();
     }
 
-    public function get($id,$tabla) {
+    public function get($id, $tabla) {
         return $this->db
                         ->where('id', $id)
                         ->get($tabla)
                         ->row();
-    }
-    
-    public function getArray($tabla) {
-        $query = $this->db->get($tabla)->result();
-        $data[''] = 'Seleccione';
-        foreach ($query as $row) {
-            $data[$row->id] = $row->descripcion;
-        }
-        return $data;
     }
 
     public function crear($tabla) {
