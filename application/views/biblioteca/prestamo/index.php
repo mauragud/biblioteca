@@ -16,9 +16,9 @@
                             <tr>
                                 <th>Titulo</th>
                                 <th>Foto</th>
-                                <th>Autor</th>
-                                <th>Editorial</th>
-                                <th>Ubicación</th>
+                                <th>Fecha prestamo</th>
+                                <th>Prestado a</th>
+                                <th>Estado</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -27,17 +27,13 @@
                                 <tr>
                                     <td><?= $data->titulo ?></td>
                                     <td style="vertical-align: middle"><?php echo $data->foto ? '<img class="foto" src="' . base_url() . $data->foto . '" alt="foto" width="30px" />' : '' ?></td>
-                                    <td><?= $data->autor ?></td>
-                                    <td><?= $data->editorial ?></td>
-                                    <td><?php echo $data->ubicacion ?> <?php echo $data->foto_ubicacion ? '<img class="foto" src="' . base_url() . $data->foto_ubicacion . '" alt="foto_ubicacion" width="30px" />' : '' ?></td>
+                                    <td><?= date('d-m-Y',$data->fecha_prestamo) ?></td>
+                                    <td><?= $data->prestado_a ?></td>
+                                    <td><?php echo $this->config->item('estado')[$data->estado] ?></td>
                                     <td class="center">
                                         <a class="btn btn-info btn-xs" href="<?= $this->url ?>/actualizar/<?= $data->id ?>">
                                             <i class="glyphicon glyphicon-edit icon-white"></i>
-                                            Editar
-                                        </a>
-                                        <a class="btn btn-danger btn-xs eliminar" href="<?= $this->url ?>/eliminar/<?= $data->id ?>">
-                                            <i class="glyphicon glyphicon-trash icon-white"></i>
-                                            Eliminar
+                                            Devolver
                                         </a>
                                     </td>
                                 </tr>
@@ -45,7 +41,7 @@
                         </tbody>
                     </table>
                 <?php else: ?>
-                    No se encontraron Datos
+                    No hay libros prestados
                 <?php endif; ?>
             </div>
         </div>

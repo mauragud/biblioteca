@@ -35,10 +35,12 @@
                         <li><a href="<?= base_url() ?>biblioteca/libro/crear">Crear</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a class="ajax-link" href="form.html"><i class="glyphicon glyphicon-edit"></i><span> Forms</span></a></li>
-                <li>
-                    <a class="ajax-link" href="chart.html"><i class="glyphicon glyphicon-list-alt"></i><span> Charts</span></a>
+                <li class="accordion">
+                    <a href="#"><i class="glyphicon glyphicon-plus"></i><span> Prestamos</span></a>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="<?= base_url() ?>biblioteca/prestamo">Listado</a></li>
+                        <li><a href="<?= base_url() ?>biblioteca/prestamo/crear">Crear</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="<?= base_url() ?>seguridad/login/salir"><i class="glyphicon glyphicon-lock"></i><span> Salir</span></a>

@@ -100,7 +100,38 @@ $config = array(
             'label' => 'Tipo de libro',
             'rules' => 'trim|required'
         )
-        
+    ),
+    'prestamo' => array(
+        array(
+            'field' => 'libro_id',
+            'label' => 'Libro',
+            'rules' => 'trim|required'
+        ),
+        array(
+            'field' => 'fecha_prestamo',
+            'label' => 'Fecha prestamo',
+            'rules' => 'trim|required',
+        ),
+        array(
+            'field' => 'fecha_devolucion',
+            'label' => 'Fecha devolución',
+            'rules' => 'trim',
+        ),
+        array(
+            'field' => 'estado',
+            'label' => 'Estado',
+            'rules' => 'trim|required',
+        ),
+        array(
+            'field' => 'prestado_a',
+            'label' => 'Prestado a',
+            'rules' => 'trim|required',
+        ),
+        array(
+            'field' => 'usuario_id',
+            'label' => 'Usuario',
+            'rules' => 'trim|required'
+        )
     ),
 );
 

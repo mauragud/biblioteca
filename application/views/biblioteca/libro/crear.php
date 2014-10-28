@@ -93,22 +93,6 @@
             $(this).valid();
         });
 
-        $('.fotografia').bind('click', function () {
-            $.ajax({
-                url: '<?php echo base_url() ?>parametrizacion/upload_foto/eliminar',
-                data: {
-                    foto: '<?php echo isset($data->foto) ? $data->foto : '' ?>',
-                    id: '<?php echo isset($data->id) ? $data->id : '' ?>',
-                    peticion: 'libro'
-                },
-                type: 'post',
-                success: function (respuesta) {
-                    alert(respuesta);
-                    $('.fotografia').html('');
-                }
-            });
-        });
-
         $('#fileupload').fileupload({
             url: '<?php echo base_url() ?>parametrizacion/upload_foto/index/libros',
             dataType: 'json',

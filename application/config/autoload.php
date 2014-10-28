@@ -80,7 +80,7 @@ $autoload['helper'] = array('url','inflector','biblioteca_helper');
 |
 */
 
-$autoload['config'] = array();
+$autoload['config'] = array('biblioteca');
 
 
 /*
